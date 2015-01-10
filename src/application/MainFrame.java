@@ -62,6 +62,10 @@ public class MainFrame extends JFrame {
 
 		statusBar.setStatusListener(new StatusListener(){
 			public void StatusPerformed(String op) {
+				
+				soundMode.terminate();
+				timeLapse.terminate();
+				timeWarp.terminate();
 				if(op.equals(StatusEnum.HOME.getOperation())){
 					cards.show(mode,ModeEnum.MAINMENU.getMode());
 					currentMode = ModeEnum.MAINMENU.getMode();
@@ -95,7 +99,7 @@ public class MainFrame extends JFrame {
 	}
 
 	public Dimension getMinimumSize(){
-		return new Dimension(500,700);
+		return new Dimension(700,700);
 	}
 
 

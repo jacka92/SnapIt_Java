@@ -22,7 +22,6 @@ public class SimpleMode extends JPanel {
 		simple.addActionListener(new ActionListener(){
 
 			public void actionPerformed(ActionEvent e) {
-				//Toolkit.getDefaultToolkit().beep();
 				helper.Click.snap();
 			}
 		});

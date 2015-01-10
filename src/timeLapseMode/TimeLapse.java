@@ -72,7 +72,7 @@ public class TimeLapse extends JPanel {
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		add(Box.createRigidArea(new Dimension(500, 200)));
+		add(Box.createRigidArea(new Dimension(500, 80)));
 
 		JLabel hourLabel = new JLabel("HH");
 		hourLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -105,6 +105,49 @@ public class TimeLapse extends JPanel {
 		count.setAlignmentX(CENTER_ALIGNMENT);
 		add(count);
 
+		
+
+		btnView = new JButton("View Saved File");
+		btnView.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String readFileName = "Number of time lapse photos.html"; 
+				String windowTitle = "Saved File";
+				String noFileMessageDialogue = "File does not exist yet.";
+				helper.HtmlHelper.readHtml(readFileName, windowTitle, noFileMessageDialogue);
+			}
+		});
+		btnView.setPreferredSize(new Dimension(200, 50));
+		btnView.setMaximumSize(new Dimension(200, 50));
+		btnView.setMinimumSize(new Dimension(200, 50));
+		btnView.setAlignmentX(CENTER_ALIGNMENT);
+		add(Box.createRigidArea(new Dimension(50, 5)));
+		
+		btnStart = new JButton("Start");
+		btnStart.setPreferredSize(new Dimension(200, 50));
+		btnStart.setMaximumSize(new Dimension(200, 50));
+		btnStart.setMinimumSize(new Dimension(200, 50));
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				double timeInt = 0;
+				int numSnaps = 0;
+
+				timeInt += 3600 * (double) timeSpanHours.getValue();
+				timeInt += 60 * (double) timeSpanMins.getValue();
+				timeInt += (double) timeSpanSecs.getValue();
+				timeInt += (double) timeSpanCents.getValue() / 100;
+
+				numSnaps = (int) (double) snap.getValue();
+
+				if (!isRunning) {
+					btnStart.setText("Stop");
+				} else {
+					btnStart.setText("Start");
+				}
+				startLapsing(numSnaps, timeInt);
+			}
+		});
+
 		btnSave = new JButton("Save Number of Snaps Taken");
 		btnSave.addActionListener(new ActionListener() {
 			@Override
@@ -123,52 +166,7 @@ public class TimeLapse extends JPanel {
 		btnSave.setMinimumSize(new Dimension(200, 50));
 		btnSave.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(50, 5)));
-		add(btnSave);
-
-		btnView = new JButton("View Saved File");
-		btnView.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				String readFileName = "Number of time lapse photos.html"; 
-				String windowTitle = "Saved File";
-				String noFileMessageDialogue = "File does not exist yet.";
-				helper.HtmlHelper.readHtml(readFileName, windowTitle, noFileMessageDialogue);
-			}
-		});
-		btnView.setPreferredSize(new Dimension(200, 50));
-		btnView.setMaximumSize(new Dimension(200, 50));
-		btnView.setMinimumSize(new Dimension(200, 50));
-		btnView.setAlignmentX(CENTER_ALIGNMENT);
-		add(Box.createRigidArea(new Dimension(50, 5)));
-		add(btnView);
-
-		btnStart = new JButton("Start");
-		btnStart.setPreferredSize(new Dimension(150, 50));
-		btnStart.setMaximumSize(new Dimension(150, 50));
-		btnStart.setMinimumSize(new Dimension(150, 50));
-		btnStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				double timeInt = 0;
-				int numSnaps = 0;
-
-				timeInt += 3600 * (double) timeSpanHours.getValue();
-				timeInt += 60 * (double) timeSpanMins.getValue();
-				timeInt += (double) timeSpanSecs.getValue();
-				timeInt += (double) timeSpanCents.getValue() / 100;
-
-				numSnaps = (int) (double) snap.getValue();
-
-				if (!isRunning) {
-					btnStart.setText("Stop");
-				} else {
-					btnStart.setText("Start");
-				}
-				System.out.println(timeInt);
-				startLapsing(numSnaps, timeInt);
-			}
-		});
-
-		add(Box.createRigidArea(new Dimension(50, 20)));
+		
 
 		JLabel snapLabel = new JLabel("Number of Snaps");
 		snapLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -183,6 +181,11 @@ public class TimeLapse extends JPanel {
 		btnStart.setAlignmentX(CENTER_ALIGNMENT);
 		add(Box.createRigidArea(new Dimension(50, 20)));
 		add(btnStart);
+		add(Box.createRigidArea(new Dimension(50, 50)));
+
+		add(btnSave);
+		add(btnView);
+
 
 	}
 
@@ -195,11 +198,9 @@ public class TimeLapse extends JPanel {
 			counter = 0;
 			timer = new Timer((int) (interval * 1000), new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					System.out.println(snaps);
 					Toolkit.getDefaultToolkit().beep();
 					counter++;
 					count.setText("Taken so far : " + counter);
-
 					if (snaps != 0) {
 						if (counter == snaps) {
 							timer.stop();
@@ -219,6 +220,15 @@ public class TimeLapse extends JPanel {
 
 		isRunning = !isRunning;
 		count.setText("Taken so far : " + counter);
+	}
+	
+	public void terminate(){
+		if(timer != null){
+			timer.stop();
+			timer = null;
+			isRunning=false;
+			btnStart.setText("Start");
+		}
 	}
 
 }

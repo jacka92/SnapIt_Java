@@ -17,12 +17,14 @@ public class TimeWarpController {
 		this.view = view;
 		this.model = model;
 
+		try{
 		this.view.setTimeWarpListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				setModelParameters();
 				snap(model.getSnaps(), model.getTimeInterval());
 			}
 		});
+		}catch(Exception e){System.out.println("I was here");}
 
 	}
 	
@@ -82,6 +84,14 @@ public class TimeWarpController {
 		}
 		return true;
 	}
+	
+	public void terminate(){
+		if(timer!=null){
+			timer.cancel();
+			timer = null;
+			view.resetButton("Start");
+		}	
+	}
 
 	class SnapTask extends TimerTask {
 
@@ -97,7 +107,7 @@ public class TimeWarpController {
 				double timeOfSnap = pendingQ.peek();
 				if (timeOfSnap <= timeElapsed){
 					pendingQ.poll();
-					System.out.println("Click!! " + pendingQ.size() + " Fired at " + timeElapsed );
+//					System.out.println("Click!! " + pendingQ.size() + " Fired at " + timeElapsed );
 					TimeWarpView.updateCounter(snaps - pendingQ.size());
 					Toolkit.getDefaultToolkit().beep();
 				}
@@ -107,7 +117,6 @@ public class TimeWarpController {
 					timer.cancel();
 					timer = null;
 					view.resetButton("Start");
-					System.out.println("Ended");
 				}
 
 			}

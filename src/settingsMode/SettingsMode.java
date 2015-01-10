@@ -1,6 +1,9 @@
 package settingsMode;
 
-import java.awt.GridLayout;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -19,15 +22,36 @@ public class SettingsMode extends JPanel {
 	public SettingsMode(){
 		super();
 		
-		setLayout(new GridLayout(6,0));
+		setLayout(new GridBagLayout());
+		GridBagConstraints gc = new GridBagConstraints();
 		
 		recordActions = new JCheckBox("Record Actions ?");
-		JLabel settingsLabel = new JLabel("This is settings Page");
+		JLabel settingsLabel = new JLabel("<html><p>If the Record Options is checked below, the"
+				+ " number of times a mode is used is recorded in a json file format, Click "
+				+ " the button below to see a bar graph of the data</p></html>");
+		settingsLabel.setMinimumSize(new Dimension(400,200));
+		settingsLabel.setPreferredSize(new Dimension(400,200));
+		settingsLabel.setMaximumSize(new Dimension(400,200));
 		JButton showStats = new JButton("Show Stats");
 		
-		add(settingsLabel);
-		add(recordActions);
-		add(showStats);
+		gc.fill = GridBagConstraints.NONE; 
+		settingsLabel.setHorizontalAlignment(JLabel.CENTER);
+		gc.anchor = GridBagConstraints.CENTER;
+		
+		gc.gridx=0; gc.gridy=0;
+		gc.ipady = 50;
+		add(settingsLabel,gc);
+		
+		gc.gridx=0; gc.gridy=1;
+		add(recordActions,gc);
+		
+		
+		gc.gridx=0; gc.gridy=2;
+		gc.weighty = 0.1;
+		showStats.setPreferredSize(new Dimension(100,10));
+		showStats.setMaximumSize(new Dimension(100,10));
+		showStats.setMinimumSize(new Dimension(100,10));
+		add(showStats,gc);
 		
 		getJSON();
 		

@@ -70,7 +70,7 @@ public class TimeWarpView extends JPanel {
 		gc.gridy = 1;
 		gc.gridwidth=3;
 		gc.gridheight=3;
-		gc.anchor = GridBagConstraints.CENTER;
+		gc.anchor = GridBagConstraints.NORTH;
 		add(bezier, gc);
 
 		gc.gridwidth=1;
