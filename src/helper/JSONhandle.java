@@ -1,13 +1,10 @@
 package helper;
 import java.io.File;
 import java.io.IOException;
-import java.io.StringWriter;
-
 import org.apache.commons.io.FileUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
 
 public class JSONhandle {
 	@SuppressWarnings("unchecked")
