@@ -174,4 +174,14 @@ public class SoundMode extends JPanel {
 		}
 	};
 	
+	public void terminate(){
+		if(inRecordingMode){
+			setBarsInvisible();
+			Start.setText("Start Listening");
+			timer.stop();
+			recorder.finish();
+			inRecordingMode = false;
+		}
+	}
+	
 }

@@ -4,13 +4,13 @@
 	<classpathentry kind="src" path="Images"/>
 	<classpathentry kind="src" path="sounds"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/commons-io-2.4-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/commons-io-2.4.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/commons-lang-2.5-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/jatl-0.2.2-sources.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/jatl-0.2.2.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/jl1.0.1.jar"/>
-	<classpathentry kind="lib" path="/Users/abhi/Documents/workspace/snap/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.4-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.5-sources.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/jatl-0.2.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jatl-0.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/jl1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/json-simple-1.1.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
