@@ -50,8 +50,6 @@ public class MainFrame extends JFrame {
 		TimeWarpView view = new TimeWarpView();
 		TimeWarpModel model = new TimeWarpModel();
 
-		//controller never used warning neglected
-		@SuppressWarnings("unused")
 		TimeWarpController timeWarp = new TimeWarpController(model,view);
 
 		soundMode.SoundMode soundMode = new soundMode.SoundMode();
