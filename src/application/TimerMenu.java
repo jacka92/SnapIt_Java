@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package application;
 
 import java.awt.GridBagConstraints;
@@ -11,15 +14,27 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TimerMenu.
+ */
 public class TimerMenu extends JPanel implements ActionListener {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -321640520366017219L;
 	
+	/** The time warp. */
 	JButton timeWarp;
+	
+	/** The time lapse. */
 	JButton timeLapse;
 	
+	/** The listener. */
 	private MenuListener listener;
 	
+	/**
+	 * Instantiates a new timer menu.
+	 */
 	public TimerMenu(){
 		
 		setLayout(new GridBagLayout());
@@ -51,10 +66,18 @@ public class TimerMenu extends JPanel implements ActionListener {
 		timeWarp.addActionListener(this);
 	}
 	
+	/**
+	 * Sets the menu listener.
+	 *
+	 * @param listener the new menu listener
+	 */
 	public void setMenuListener(MenuListener listener){
 		this.listener = listener;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(listener != null){
 			listener.MenuPerformed(((JButton)e.getSource()).getName());

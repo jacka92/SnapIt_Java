@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package timeWarpMode;
 
 import java.awt.Color;
@@ -13,21 +16,45 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TimeWarpView.
+ */
 public class TimeWarpView extends JPanel {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The bezier. */
 	Curve bezier = new Curve();
+	
+	/** The counter. */
 	private static JLabel counter = new JLabel("Snaps Taken:" + 0 );
+	
+	/** The start. */
 	private static JButton start;
+	
+	/** The start content. */
 	public static String startContent="Start";
 	
+	/** The snap. */
 	private JSpinner snap;
+	
+	/** The time span hours. */
 	private JSpinner timeSpanHours;
+	
+	/** The time span mins. */
 	private JSpinner timeSpanMins;
+	
+	/** The time span secs. */
 	private JSpinner timeSpanSecs;
+	
+	/** The elapsed time. */
 	private JLabel elapsedTime;
 	
+	/**
+	 * Instantiates a new time warp view.
+	 */
 	public TimeWarpView(){
 		super();
 
@@ -35,6 +62,9 @@ public class TimeWarpView extends JPanel {
 
 	}
 	
+	/**
+	 * Creates the gui.
+	 */
 	private void createGUI(){
 		
 		
@@ -124,6 +154,11 @@ public class TimeWarpView extends JPanel {
 
 	}
 	
+	/**
+	 * Gets the time interval.
+	 *
+	 * @return the time interval
+	 */
 	public double getTimeInterval(){
 		double timeInt = 0;
 		timeInt += 3600 *(double)timeSpanHours.getValue();
@@ -133,14 +168,29 @@ public class TimeWarpView extends JPanel {
 		
 	}
 	
+	/**
+	 * Gets the num snaps.
+	 *
+	 * @return the num snaps
+	 */
 	public int getNumSnaps(){
 		return (int)(double)snap.getValue();
 	}
 	
+	/**
+	 * Reset button.
+	 *
+	 * @param s the s
+	 */
 	public void resetButton(String s){
 		start.setText(s);
 	}
 	
+	/**
+	 * Sets the time elapsed label.
+	 *
+	 * @param time the new time elapsed label
+	 */
 	public void setTimeElapsedLabel(double time){
 		double totalSecs = time / 1000;
 		int hours = (int)(totalSecs / 3600);
@@ -153,19 +203,35 @@ public class TimeWarpView extends JPanel {
 	}
 	
 	
+	/**
+	 * Update counter.
+	 *
+	 * @param i the i
+	 */
 	public static void updateCounter(int i){
 		counter.setText("Snaps Taken:" + i);
 	}
 	
 
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#getPreferredSize()
+	 */
 	public Dimension getPreferredSize(){
 		return new Dimension(500,700);
 	}
 	
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#getMinimumSize()
+	 */
 	public Dimension getMinimumSize(){
 		return new Dimension(500,700);
 	}
 	
+	/**
+	 * Sets the time warp listener.
+	 *
+	 * @param listener the new time warp listener
+	 */
 	public void setTimeWarpListener(ActionListener listener){
 		start.addActionListener(listener);
 	}

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package helper;
 import java.io.File;
 import java.io.IOException;
@@ -6,7 +9,15 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class JSONhandle.
+ */
 public class JSONhandle {
+	
+	/**
+	 * Inits the json.
+	 */
 	@SuppressWarnings("unchecked")
 	public static void initJSON() 
 	{
@@ -25,6 +36,11 @@ public class JSONhandle {
 
 	}
 	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args){
 		initJSON();
 		readJSON();
@@ -38,6 +54,15 @@ public class JSONhandle {
 		
 	}
 	
+	/**
+	 * Write json.
+	 *
+	 * @param timeLapse the time lapse
+	 * @param timeWarp the time warp
+	 * @param soundMode the sound mode
+	 * @param simpleMode the simple mode
+	 * @param enabled the enabled
+	 */
 	@SuppressWarnings("unchecked")
 	public static void writeJSON(int timeLapse, int timeWarp, int soundMode, int simpleMode, boolean enabled) 
 	{
@@ -56,6 +81,9 @@ public class JSONhandle {
 
 	}
 
+	/**
+	 * Read json.
+	 */
 	public static void readJSON(){
 
 		JSONParser parser=new JSONParser();
@@ -80,6 +108,11 @@ public class JSONhandle {
 
 	}
 	
+	/**
+	 * Gets the enabled.
+	 *
+	 * @return the enabled
+	 */
 	public static boolean getEnabled(){
 		boolean analytics = false;
 		StringBuffer s = new StringBuffer();
@@ -102,6 +135,11 @@ public class JSONhandle {
 		return analytics;
 	}
 	
+	/**
+	 * Gets the time lapse.
+	 *
+	 * @return the time lapse
+	 */
 	public static int getTimeLapse(){
 		int count = 0;
 		StringBuffer s = new StringBuffer();
@@ -126,6 +164,11 @@ public class JSONhandle {
 	}
 	
 	
+	/**
+	 * Gets the time warp.
+	 *
+	 * @return the time warp
+	 */
 	public static int getTimeWarp(){
 		int count = 0;
 		StringBuffer s = new StringBuffer();
@@ -149,6 +192,11 @@ public class JSONhandle {
 		return count;
 	}
 	
+	/**
+	 * Gets the sound mode.
+	 *
+	 * @return the sound mode
+	 */
 	public static int getSoundMode(){
 		int count = 0;
 		StringBuffer s = new StringBuffer();
@@ -172,6 +220,11 @@ public class JSONhandle {
 		return count;
 	}
 	
+	/**
+	 * Gets the simple mode.
+	 *
+	 * @return the simple mode
+	 */
 	public static int getSimpleMode(){
 		int count = 0;
 		StringBuffer s = new StringBuffer();
@@ -196,25 +249,42 @@ public class JSONhandle {
 	}
 	
 
+	/**
+	 * Sets the enabled.
+	 *
+	 * @param enabled the new enabled
+	 */
 	public static void setEnabled(boolean enabled){
 		writeJSON(getTimeLapse(), getTimeWarp(), getSoundMode(), getSimpleMode(), enabled);
 	}
 	
+	/**
+	 * Increase time lapse.
+	 */
 	public static void increaseTimeLapse(){
 		if(getEnabled())
 		writeJSON(getTimeLapse() + 1, getTimeWarp(), getSoundMode(), getSimpleMode(), getEnabled());
 	}
 	
+	/**
+	 * Increase time warp.
+	 */
 	public static void increaseTimeWarp(){
 		if(getEnabled())
 		writeJSON(getTimeLapse() , getTimeWarp() + 1, getSoundMode(), getSimpleMode(), getEnabled());
 	}
 	
+	/**
+	 * Increase sound mode.
+	 */
 	public static void increaseSoundMode(){
 		if(getEnabled())
 		writeJSON(getTimeLapse() , getTimeWarp(), getSoundMode() + 1, getSimpleMode(), getEnabled());
 	}
 	
+	/**
+	 * Increase simple mode.
+	 */
 	public static void increaseSimpleMode(){
 		if(getEnabled())
 		writeJSON(getTimeLapse() , getTimeWarp(), getSoundMode(), getSimpleMode() + 1, getEnabled());

@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package settingsMode;
 
 import java.awt.Dimension;
@@ -14,11 +17,21 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SettingsMode.
+ */
 public class SettingsMode extends JPanel {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -1909876781076670357L;
 
+	/** The record actions. */
 	JCheckBox recordActions;
 	
+	/**
+	 * Instantiates a new settings mode.
+	 */
 	public SettingsMode(){
 		super();
 		
@@ -76,6 +89,11 @@ public class SettingsMode extends JPanel {
 		
 	}
 	
+	/**
+	 * Gets the json.
+	 *
+	 * @return the json
+	 */
 	public void getJSON(){
 //		recordActions.set
 		recordActions.setSelected(helper.JSONhandle.getEnabled());

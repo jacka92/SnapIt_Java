@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package application;
 
 
@@ -7,8 +10,17 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class App.
+ */
 public class App {
 
+	/**
+	 * The main method.
+	 *
+	 * @param argv the arguments
+	 */
 	public static void main(String...argv){
 		SwingUtilities.invokeLater(new Runnable(){
 			public void run() {

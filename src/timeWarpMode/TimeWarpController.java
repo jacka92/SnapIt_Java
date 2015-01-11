@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package timeWarpMode;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -8,11 +11,24 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TimeWarpController.
+ */
 public class TimeWarpController {
 
+	/** The model. */
 	TimeWarpModel model;
+	
+	/** The view. */
 	TimeWarpView view;
 
+	/**
+	 * Instantiates a new time warp controller.
+	 *
+	 * @param model the model
+	 * @param view the view
+	 */
 	public TimeWarpController(TimeWarpModel model, TimeWarpView view){
 		this.view = view;
 		this.model = model;
@@ -28,6 +44,9 @@ public class TimeWarpController {
 
 	}
 	
+	/**
+	 * Sets the model parameters.
+	 */
 	public void setModelParameters(){
 		//set bezier parameters from view to model
 		model.setCp1(view.bezier.cp1);
@@ -39,9 +58,15 @@ public class TimeWarpController {
 		
 	}
 
+	/** The timer. */
 	Timer timer;
+	
+	/** The pending q. */
 	private Queue<Double> pendingQ;
 
+	/**
+	 * Start snapping.
+	 */
 	private void startSnapping()
 	{
 
@@ -70,6 +95,13 @@ public class TimeWarpController {
 	}
 
 
+	/**
+	 * Snap.
+	 *
+	 * @param snaps the snaps
+	 * @param interval the interval
+	 * @return true, if successful
+	 */
 	public boolean snap(int snaps, double interval){
 		TimeWarpModel.setTimeElapsed(0);
 		
@@ -85,6 +117,9 @@ public class TimeWarpController {
 		return true;
 	}
 	
+	/**
+	 * Terminate.
+	 */
 	public void terminate(){
 		if(timer!=null){
 			timer.cancel();
@@ -93,8 +128,14 @@ public class TimeWarpController {
 		}	
 	}
 
+	/**
+	 * The Class SnapTask.
+	 */
 	class SnapTask extends TimerTask {
 
+		/* (non-Javadoc)
+		 * @see java.util.TimerTask#run()
+		 */
 		public void run() {
 
 			TimeWarpModel.setTimeElapsed(TimeWarpModel.getTimeElapsed()+150);

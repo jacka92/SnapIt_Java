@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package simpleMode;
 
 import java.awt.Dimension;
@@ -8,9 +11,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SimpleMode.
+ */
 public class SimpleMode extends JPanel {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -8036978541775479731L;
 
+	/**
+	 * Instantiates a new simple mode.
+	 */
 	public SimpleMode(){
 		JButton simple = new JButton("Snap");
 		setLayout(new GridBagLayout());

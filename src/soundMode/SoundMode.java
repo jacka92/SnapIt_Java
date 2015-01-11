@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package soundMode;
 import java.awt.Dimension;
 import java.awt.GridLayout;
@@ -17,32 +20,64 @@ import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SoundMode.
+ */
 public class SoundMode extends JPanel {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The ear. */
 	JLabel ear;
+	
+	/** The recorder. */
 	static helper.Recorder recorder = new helper.Recorder();
+	
+	/** The in recording mode. */
 	boolean inRecordingMode = false;
+	
+	/** The slider val. */
 	static Integer sliderVal = new Integer(50);
 	
 	///Volume Bars
+	/** The vols. */
 	static ArrayList<javax.swing.JLabel> vols;
 	
+	/** The green. */
 	Image green = new ImageIcon(this.getClass().getResource("/greenVol.png")).getImage();
+	
+	/** The yellow. */
 	Image yellow = new ImageIcon(this.getClass().getResource("/YelloVol.png")).getImage();
+	
+	/** The orange. */
 	Image orange = new ImageIcon(this.getClass().getResource("/orangeVol.png")).getImage();
+	
+	/** The red. */
 	Image red = new ImageIcon(this.getClass().getResource("/redVol.png")).getImage();
+	
+	/** The mic. */
 	Image mic = new ImageIcon(this.getClass().getResource("/mic.png")).getImage();
 
+	/** The slider. */
 	static JSlider slider;
+	
+	/** The Start. */
 	private JButton Start;
+	
+	/** The help. */
 	private JButton help;
+	
+	/** The timer. */
 	static Timer timer;
+	
+	/** The time. */
 	static int time = 100;
 
+	/**
+	 * Instantiates a new sound mode.
+	 */
 	public SoundMode() {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS ));
 
@@ -132,6 +167,9 @@ public class SoundMode extends JPanel {
 		
 	}
 	
+	/**
+	 * Sets the bars invisible.
+	 */
 	public static  void setBarsInvisible(){
 		for(int i=0;i<vols.size();i++){
 			
@@ -139,6 +177,11 @@ public class SoundMode extends JPanel {
 		}
 	}
 	
+	/**
+	 * Sets the bars.
+	 *
+	 * @param meter the new bars
+	 */
 	public void setBars(JPanel meter){
 		for(int i=0;i<vols.size()/2;i++){
 			vols.get(i).setIcon(new ImageIcon(green));
@@ -157,6 +200,7 @@ public class SoundMode extends JPanel {
 		
 	}
 
+	/** The task performer. */
 	static ActionListener taskPerformer = new ActionListener() {
 		public void actionPerformed(ActionEvent evt) {
 			setBarsInvisible();
@@ -174,6 +218,9 @@ public class SoundMode extends JPanel {
 		}
 	};
 	
+	/**
+	 * Terminate.
+	 */
 	public void terminate(){
 		if(inRecordingMode){
 			setBarsInvisible();

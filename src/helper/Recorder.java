@@ -1,6 +1,10 @@
+/*
+ * 
+ */
 package helper;
 import javax.sound.sampled.*;
  
+// TODO: Auto-generated Javadoc
 /**
  * A sample program is to demonstrate how to record sound in Java
  * author: www.codejava.net
@@ -8,14 +12,20 @@ import javax.sound.sampled.*;
 public class Recorder {
    
     // format of audio file
+    /** The file type. */
     AudioFileFormat.Type fileType = AudioFileFormat.Type.WAVE;
  
     // the line from which audio data is captured
+    /** The line. */
     TargetDataLine line;
+    
+    /** The is recording. */
     boolean isRecording = false;
  
     /**
-     * Defines an audio format
+     * Defines an audio format.
+     *
+     * @return the audio format
      */
     AudioFormat getAudioFormat() {
         float sampleRate = 16000;
@@ -29,7 +39,7 @@ public class Recorder {
     }
  
     /**
-     * Captures the sound and record into a WAV file
+     * Captures the sound and record into a WAV file.
      */
     public void start() {
         try {
@@ -51,7 +61,7 @@ public class Recorder {
     }
  
     /**
-     * Closes the target data line to finish capturing and recording
+     * Closes the target data line to finish capturing and recording.
      */
     public void finish() {
         line.stop();
@@ -59,7 +69,9 @@ public class Recorder {
     }
  
     /**
-     * Entry to run the program - 
+     * Entry to run the program -.
+     *
+     * @return the rms
      */
     public int getRMS() {
                    
@@ -70,6 +82,12 @@ public class Recorder {
             
     }
     
+    /**
+     * Calculate rms level.
+     *
+     * @param audioData the audio data
+     * @return the int
+     */
     protected static int calculateRMSLevel(byte[] audioData)
     { // audioData might be buffered data read from a data line
         long lSum = 0;

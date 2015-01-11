@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package application;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -12,16 +15,33 @@ import javax.swing.JPanel;
 
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MainMenu.
+ */
 public class MainMenu extends JPanel implements ActionListener {
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	
+	/** The timer menu. */
 	JButton timerMenu = new JButton();
+	
+	/** The snap. */
 	JButton snap = new JButton();
+	
+	/** The settings. */
 	JButton settings = new JButton();
+	
+	/** The sound mode. */
 	JButton soundMode = new JButton();
 	
+	/** The listener. */
 	private MenuListener listener;
 	
+	/**
+	 * Instantiates a new main menu.
+	 */
 	public MainMenu() {
 		setLayout(new GridBagLayout());
 		
@@ -64,10 +84,18 @@ public class MainMenu extends JPanel implements ActionListener {
 		
 	}
 	
+	/**
+	 * Sets the menu listener.
+	 *
+	 * @param listener the new menu listener
+	 */
 	public void setMenuListener(MenuListener listener){
 		this.listener = listener;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(listener != null){
 			listener.MenuPerformed(((JButton)e.getSource()).getName());

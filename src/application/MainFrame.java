@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package application;
 
 
@@ -12,14 +15,26 @@ import timeWarpMode.*;
 import settingsMode.*;
 import simpleMode.*;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MainFrame.
+ */
 public class MainFrame extends JFrame {
 
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	/** The is time warp. */
 	boolean isTimeWarp = false;
 	
+	/** The current mode. */
 	private String currentMode;
 
+	/**
+	 * Instantiates a new main frame.
+	 *
+	 * @param s the s
+	 */
 	public MainFrame(String s){
 		super(s);
 
@@ -98,6 +113,9 @@ public class MainFrame extends JFrame {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.Container#getMinimumSize()
+	 */
 	public Dimension getMinimumSize(){
 		return new Dimension(700,700);
 	}

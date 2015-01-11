@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package helper;
 
 import java.awt.BorderLayout;
@@ -15,10 +18,23 @@ import org.apache.commons.io.FileUtils;
 
 import com.googlecode.jatl.Html;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class HtmlHelper.
+ */
 public class HtmlHelper {
 
+	/** The h. */
 	private static HtmlHelper h = new HtmlHelper();
 
+	/**
+	 * Creates the and write html.
+	 *
+	 * @param title the title
+	 * @param h1 the h1
+	 * @param h2 the h2
+	 * @param writeFileName the write file name
+	 */
 	public void createAndWriteHtml(String title, String h1, String h2,
 			String writeFileName) {
 		StringWriter sw = new StringWriter();
@@ -44,11 +60,26 @@ public class HtmlHelper {
 		};
 	}
 
+	/**
+	 * Write html.
+	 *
+	 * @param title the title
+	 * @param h1 the h1
+	 * @param h2 the h2
+	 * @param writeFileName the write file name
+	 */
 	public static void writeHTML(String title, String h1, String h2,
 			String writeFileName) {
 		h.createAndWriteHtml(title, h1, h2, writeFileName);
 	}
 
+	/**
+	 * Read and display html.
+	 *
+	 * @param readFileName the read file name
+	 * @param windowTitle the window title
+	 * @param noFileMessageDialoge the no file message dialoge
+	 */
 	public void ReadAndDisplayHtml(String readFileName, String windowTitle,
 			String noFileMessageDialoge) {
 		if (new File(readFileName).isFile() == true) {
@@ -79,6 +110,13 @@ public class HtmlHelper {
 		}
 	}
 
+	/**
+	 * Read html.
+	 *
+	 * @param readFileName the read file name
+	 * @param windowTitle the window title
+	 * @param noFileMessageDialoge the no file message dialoge
+	 */
 	public static void readHtml(String readFileName, String windowTitle,
 			String noFileMessageDialoge) {
 		h.ReadAndDisplayHtml(readFileName, windowTitle, noFileMessageDialoge);

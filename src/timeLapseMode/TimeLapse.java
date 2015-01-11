@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package timeLapseMode;
 
 import java.awt.Color;
@@ -19,55 +22,109 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.Timer;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TimeLapse.
+ */
 public class TimeLapse extends JPanel {
 
-	/**
-	 * 
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
+	
+	/** The secs. */
 	JSlider hours, mins, cents, secs;
+	
+	/** The cent counts. */
 	JLabel hourCount, minCounts, secCount, centCounts;
+	
+	/** The spinner. */
 	JSpinner spinner;
 
+	/** The is running. */
 	private boolean isRunning = false;
 
+	/**
+	 * Gets the hour slider mils.
+	 *
+	 * @return the hour slider mils
+	 */
 	public int getHourSliderMils() {
 		return hourSliderMils;
 	}
 
+	/**
+	 * Gets the min slider mils.
+	 *
+	 * @return the min slider mils
+	 */
 	public int getMinSliderMils() {
 		return minSliderMils;
 	}
 
+	/**
+	 * Gets the sec slider mils.
+	 *
+	 * @return the sec slider mils
+	 */
 	public int getSecSliderMils() {
 		return secSliderMils;
 	}
 
+	/**
+	 * Gets the cent slider mils.
+	 *
+	 * @return the cent slider mils
+	 */
 	public int getCentSliderMils() {
 		return centSliderMils;
 	}
 
+	/** The hour slider mils. */
 	int hourSliderMils;
+	
+	/** The min slider mils. */
 	int minSliderMils;
+	
+	/** The sec slider mils. */
 	int secSliderMils;
+	
+	/** The cent slider mils. */
 	int centSliderMils;
 
+	/** The time span hours. */
 	JSpinner timeSpanHours = new JSpinner(new SpinnerNumberModel(0.0, 0.0,
 			999.0, 1));
+	
+	/** The time span mins. */
 	JSpinner timeSpanMins = new JSpinner(
 			new SpinnerNumberModel(0.0, 0.0, 59, 1));
+	
+	/** The time span secs. */
 	JSpinner timeSpanSecs = new JSpinner(
 			new SpinnerNumberModel(0.0, 0.0, 59, 1));
+	
+	/** The time span cents. */
 	JSpinner timeSpanCents = new JSpinner(new SpinnerNumberModel(0.0, 0.0, 99,
 			1));
+	
+	/** The snap. */
 	JSpinner snap = new JSpinner(new SpinnerNumberModel(0.0, 0.0, 999.0, 1));
 
+	/** The timer. */
 	Timer timer;
 
+	/** The count. */
 	static JLabel count = new JLabel("Taken so far : 0");
+	
+	/** The counter. */
 	static int counter = 0;
+	
+	/** The btn start. */
 	JButton btnSave, btnView, btnStart;
 
+	/**
+	 * Instantiates a new time lapse.
+	 */
 	public TimeLapse() {
 
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -189,6 +246,12 @@ public class TimeLapse extends JPanel {
 
 	}
 
+	/**
+	 * Start lapsing.
+	 *
+	 * @param snaps the snaps
+	 * @param interval the interval
+	 */
 	private void startLapsing(int snaps, double interval) {
 
 		if (interval < 0.15) {
@@ -222,6 +285,9 @@ public class TimeLapse extends JPanel {
 		count.setText("Taken so far : " + counter);
 	}
 	
+	/**
+	 * Terminate.
+	 */
 	public void terminate(){
 		if(timer != null){
 			timer.stop();

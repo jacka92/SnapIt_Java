@@ -1,3 +1,6 @@
+/*
+ * 
+ */
 package barchart;
 
 import java.awt.Color;
@@ -6,20 +9,36 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ChartPanel.
+ */
 public class ChartPanel extends JPanel {
-	/**
-	 * 
-	 */
+	
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -356807261186412072L;
+	
+	/** The values. */
 	private double[] values;
+	
+	/** The names. */
 	private String[] names;
 
+	/**
+	 * Instantiates a new chart panel.
+	 *
+	 * @param values the values
+	 * @param names the names
+	 */
 	public ChartPanel(double[] values,String[] names ){
 		this.values = values;
 		this.names = names;
 		
 	}
 	
+	/* (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 */
 	@Override
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
@@ -27,6 +46,11 @@ public class ChartPanel extends JPanel {
 		drawBar(g2d);
 	}
 	
+	/**
+	 * Draw bar.
+	 *
+	 * @param g2d the g2d
+	 */
 	public void drawBar(Graphics2D g2d){
 		Dimension d = getSize();
 		int height = d.height;
